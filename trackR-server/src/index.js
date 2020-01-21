@@ -1,5 +1,23 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
+
+const mongoUri =
+  "mongodb+srv://admin:4bpg8a7x@trackr-prqas.mongodb.net/test?retryWrites=true&w=majority";
+
+mongoose.connect(mongoUri, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true
+});
+
+mongoose.connection.on("connected", () => {
+  console.log("Connected to Atlas!");
+});
+
+mongoose.connection.on("error", err => {
+  console.error("Error connecting to Atlas", err);
+});
 
 app.get("/", (request, response) => {
   response.send("Hello World");
