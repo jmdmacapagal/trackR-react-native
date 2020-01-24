@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const SignInScreen = () => {
+const SignInScreen = ({ navigation }) => {
   return (
     <View>
       <Text>SignInScreen</Text>
