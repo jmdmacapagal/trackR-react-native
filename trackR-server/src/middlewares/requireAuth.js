@@ -13,7 +13,7 @@ module.exports = (request, response, next) => {
 
   jwt.verify(token, "YABA_YODA", async (err, payload) => {
     if (err) {
-      return response.status(401).send({ error: "You must be logged in!!!." });
+      return response.status(401).send({ error: "You must be logged in." });
     }
 
     const { userId } = payload;
